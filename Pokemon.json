@@ -1,0 +1,91 @@
+[{
+  "_id": {
+    "$oid": "6556862c580db91ab5f60196"
+  },
+  "name": "Koffing",
+  "type": "Poison",
+  "weakness": "Psychic",
+  "number": "0109",
+  "color": "Purple",
+  "evolution": "Weezing",
+  "category": "Gas",
+  "img": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/109.png"
+},
+{
+  "_id": {
+    "$oid": "65568681580db91ab5f60197"
+  },
+  "name": "Articuno",
+  "type": "Ice, Flying",
+  "weakness": "Steel",
+  "number": "0144",
+  "color": "Blue",
+  "evolution": "Final Evolution",
+  "category": "Freeze",
+  "img": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/144.png"
+},
+{
+  "_id": {
+    "$oid": "65568700580db91ab5f60198"
+  },
+  "name": "Bulbasaur",
+  "type": "Grass, Poison",
+  "weakness": "Fire",
+  "number": "0001",
+  "color": "Green, Dark Green",
+  "evolution": "Ivysaur",
+  "category": "Seed",
+  "img": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"
+},
+{
+  "_id": {
+    "$oid": "6558d034fe04b5873f813a19"
+  },
+  "name": "Ninetales",
+  "type": "Fire",
+  "weakness": "Water",
+  "number": "0038",
+  "color": "Cream",
+  "evolution": "Final Evolution",
+  "category": "flash fire",
+  "img": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/038.png"
+},
+{
+  "_id": {
+    "$oid": "655972bd76ed7b6d7d08932b"
+  },
+  "name": "Chikorita",
+  "type": "Grass",
+  "weakness": "Fire",
+  "number": "0152",
+  "color": "Green",
+  "evolution": "Bayleef",
+  "category": "Overgrow",
+  "img": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/152.png"
+},
+{
+  "_id": {
+    "$oid": "6559789275e86fb6e6763016"
+  },
+  "name": "Quilava",
+  "type": "Fire",
+  "weakness": "Water",
+  "number": "0156",
+  "color": "Green",
+  "evolution": "Typhlosion",
+  "category": "Blaze",
+  "img": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/156.png"
+},
+{
+  "_id": {
+    "$oid": "655f8fab792dc9a4c58ed509"
+  },
+  "name": "Charmander",
+  "type": "Fire",
+  "weakness": "Water",
+  "number": "0004",
+  "color": "Orange, red",
+  "evolution": "Charmeleon",
+  "category": "Blaze",
+  "img": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png"
+}]
