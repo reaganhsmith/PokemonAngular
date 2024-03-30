@@ -5,11 +5,11 @@ p, h1, h2, h3, h4, h5, h6{
 
 button:hover{
     background-color: #193956;
-    color: #fff82d;
+    color: white;
 }
 
 button{
-    color: #fff82d;
+    color: white;
     background-color: #2a5d8d;
     font-weight: 800;
 }

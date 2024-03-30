@@ -11,6 +11,8 @@ export class PokemonDetailsComponent {
       "1", "Koffing", "Poison",
       "Psychic", "0109", "Purple", 
       "Weezing", "Gas", 
-      "https://assets.pokemon.com/assets/cms2/img/pokedex/full/109.png")
+      "https://assets.pokemon.com/assets/cms2/img/pokedex/full/109.png");
+
+      onDelete(){};
 
 }
