@@ -13,3 +13,11 @@ button{
     background-color: #2a5d8d;
     font-weight: 800;
 }
+
+.card{
+    border: solid 4px #2a5d8d;
+    max-width:30rem;
+    background-color:
+    white; padding: 2rem;
+    border-radius: 10px;
+}
