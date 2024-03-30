@@ -5,21 +5,11 @@
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <a href="#" class="list-group-item clearfix" *ngFor="let pokemon of pokemon">
-        <div class="pull-left">
-        </div> 
-        <img src="{{pokemon.img}}" alt="{{pokemon.name}}" class="img-responsive" style="Max-height: 100px; font-size: 5rem;">
-        
-        <span class="pull-right">
-        </span>
-       <h4 class="list-group-item-heading" style="color:#2a5d8d">{{pokemon.name}}</h4>
-        <p class="list-group-item-text" style="color:#2a5d8d">
-            <strong>
-            type:</strong> {{pokemon.type}}<br>
-            <strong>
-            weakeness:</strong> {{pokemon.weakness}}<br>
-        </p>
-      </a>
+      <app-pokemon-item *ngFor="let pokemonEl of pokemon" 
+      [pokemon]="pokemonEl" 
+      (pokemonSelected)="onPokemonSelected(pokemonEl)"></app-pokemon-item>
     </div>
   </div>
 
+
+  

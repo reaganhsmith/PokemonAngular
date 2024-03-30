@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Pokemon } from '../pokemon.model';
 
 @Component({
@@ -7,6 +7,7 @@ import { Pokemon } from '../pokemon.model';
   styleUrl: './pokemon-list.component.css'
 })
 export class PokemonListComponent {
+  @Output() pokemonWasSelected = new EventEmitter<Pokemon>();
   pokemon: Pokemon[] = [
     new Pokemon(
       "1", "Koffing", "Poison",
@@ -20,6 +21,12 @@ export class PokemonListComponent {
       "https://assets.pokemon.com/assets/cms2/img/pokedex/full/144.png"
     )
   ]
+
+
+
+  onPokemonSelected(pokemon: Pokemon){
+    this.pokemonWasSelected.emit(pokemon)
+  }
 
   
 }
