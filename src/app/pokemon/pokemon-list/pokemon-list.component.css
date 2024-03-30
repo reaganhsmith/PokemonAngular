@@ -1,0 +1,9 @@
+.add:hover{
+    background-color: #193956;
+}
+
+.add{
+    color: #fff82d;
+    background-color: #2a5d8d;
+    font-weight: 800;
+}
