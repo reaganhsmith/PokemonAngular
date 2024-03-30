@@ -1,17 +1,17 @@
 .item-container {
-    display: flex; /* Use flexbox */
-    align-items: center; /* Center items vertically */
+    display: flex; 
+    align-items: center; 
   }
   
-  /* Or, if you prefer to use Grid layout */
+ 
   .item-container {
-    display: grid; /* Use grid layout */
-    grid-template-columns: auto 1fr; /* Auto size for image, rest of the space for name */
-    align-items: center; /* Center items vertically */
-    gap: 10px; /* Gap between image and name */
+    display: grid; 
+    grid-template-columns: auto 1fr;
+    align-items: center; 
+    gap: 10px; 
   }
   
   .list-group-item-heading {
-    margin-bottom: 0; /* Remove default margin to prevent extra spacing */
+    margin-bottom: 0; 
   }
   
