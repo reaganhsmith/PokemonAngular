@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Pokemon } from '../pokemon.model';
+import { PokemonService } from '../pokemon.service';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -7,25 +8,17 @@ import { Pokemon } from '../pokemon.model';
   styleUrl: './pokemon-list.component.css'
 })
 export class PokemonListComponent {
-  @Output() pokemonWasSelected = new EventEmitter<Pokemon>();
-  pokemon: Pokemon[] = [
-    new Pokemon(
-      "1", "Koffing", "Poison",
-      "Psychic", "0109", "Purple", 
-      "Weezing", "Gas", 
-      "https://assets.pokemon.com/assets/cms2/img/pokedex/full/109.png"),
-    new Pokemon(
-      "2", "Articuno", "Ice, Flying",
-      "Steel", "0144", "Blue", 
-      "Final Evolution", "Freeze", 
-      "https://assets.pokemon.com/assets/cms2/img/pokedex/full/144.png"
-    )
-  ]
+  pokemon: Pokemon[] = []
 
+  constructor(private pokemonService: PokemonService){
+  }
 
+  ngOnInit() {
+    this.pokemon = this.pokemonService.getAllPokemon();
+  }
 
   onPokemonSelected(pokemon: Pokemon){
-    this.pokemonWasSelected.emit(pokemon)
+    this.pokemonService.pokemonSelectedEvent.emit(pokemon)
   }
 
   

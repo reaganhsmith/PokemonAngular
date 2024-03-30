@@ -1,6 +1,7 @@
 <a href="#" class="list-group-item clearfix" (click)="onSelected()">
-    <div class="item-container">
-      <img src="{{pokemon.img}}" alt="{{pokemon.name}}" class="img-responsive" style="max-width: 10rem;">
-      <h4 class="list-group-item-heading" style="color:#2a5d8d">{{pokemon.name}}</h4>
-    </div>
-  </a>
+  <div class="item-container">
+    <img [src]="pokemon.img" [alt]="pokemon.name" class="img-responsive" style="max-width: 10rem;">
+    <h4 class="list-group-item-heading" style="color:#2a5d8d">{{pokemon.name}}</h4>
+  </div>
+</a> 
+

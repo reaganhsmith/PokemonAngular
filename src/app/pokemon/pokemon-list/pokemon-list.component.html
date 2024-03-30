@@ -5,11 +5,9 @@
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <app-pokemon-item *ngFor="let pokemonEl of pokemon" 
-      [pokemon]="pokemonEl" 
+      <app-pokemon-item 
+      *ngFor="let pokemonEl of pokemon" 
+      [pokemon]="pokemonEl"
       (pokemonSelected)="onPokemonSelected(pokemonEl)"></app-pokemon-item>
     </div>
   </div>
-
-
-  
