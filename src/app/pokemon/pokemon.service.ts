@@ -15,8 +15,15 @@ export class PokemonService {
   }
 
   getAllPokemon() {
-    return this.pokemon.slice();
+    return this.pokemon.slice().sort(this.sortByNumber);
   }
+
+  sortByNumber(a : Pokemon, b : Pokemon){
+    const numberA = +a.number;
+    const numberB = +b.number;
+    return numberA - numberB;
+  }
+  
 
   getPokemon(id: string): Pokemon | null {
     for (const pokemon of this.pokemon) {

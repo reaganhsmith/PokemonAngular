@@ -5,10 +5,10 @@
   
  
   .item-container {
-    display: grid; 
-    grid-template-columns: auto 1fr;
+    display: flex; 
     align-items: center; 
     gap: 10px; 
+    justify-content: space-between;
   }
   
   .list-group-item-heading {

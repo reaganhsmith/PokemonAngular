@@ -33,6 +33,39 @@ export const MOCKPOKEMON: Pokemon[] = [
         evolution: "Bayleef",
         category: "Overgrow",
         img: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/152.png"
+    },
+    {
+        "id": "3",
+        "name": "Quilava",
+  "type": "Fire",
+  "weakness": "Water",
+  "number": "0156",
+  "color": "Green",
+  "evolution": "Typhlosion",
+  "category": "Blaze",
+  "img": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/156.png"
+    },
+    {
+        "id": "4",
+    "name": "Charmander",
+  "type": "Fire",
+  "weakness": "Water",
+  "number": "0004",
+  "color": "Orange, red",
+  "evolution": "Charmeleon",
+  "category": "Blaze",
+  "img": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png"
+    },
+    {
+        "id": "5",
+        "name": "Bulbasaur",
+  "type": "Grass, Poison",
+  "weakness": "Fire",
+  "number": "0001",
+  "color": "Green, Dark Green",
+  "evolution": "Ivysaur",
+  "category": "Seed",
+  "img": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"
     }
 
 ]
