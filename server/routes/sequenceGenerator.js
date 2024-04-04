@@ -28,20 +28,10 @@ const sequenceGenerator = {
     try {
       // Await the nextId function call to resolve the Promise
       switch (collectionType) {
-        case 'documents':
-          const maxDocumentId = await this.nextDocumentId();
-          nextId = maxDocumentId.toString(); // Convert to string
-          updateObject = { maxDocumentId: maxDocumentId };
-          break;
-        case 'messages':
-          const maxMessageId = await this.nextMessageId();
-          nextId = maxMessageId.toString(); // Convert to string
-          updateObject = { maxMessageId: maxMessageId };
-          break;
-        case 'contacts':
-          const maxContactId = await this.nextContactId();
-          nextId = maxContactId.toString(); // Convert to string
-          updateObject = { maxContactId: maxContactId };
+        case 'pokemon':
+          const maxPokemonId = await this.nextPokemonId();
+          nextId = maxPokemonId.toString(); // Convert to string
+          updateObject = { maxPokemonId: maxPokemonId };
           break;
         default:
           return -1;
@@ -57,19 +47,10 @@ const sequenceGenerator = {
     }
   },
 
-  async nextDocumentId() {
-    const sequence = await Sequence.findOneAndUpdate({}, { $inc: { maxDocumentId: 1 } }, { new: true });
-    return sequence.maxDocumentId;
-  },
 
-  async nextMessageId() {
-    const sequence = await Sequence.findOneAndUpdate({}, { $inc: { maxMessageId: 1 } }, { new: true });
-    return sequence.maxMessageId;
-  },
-
-  async nextContactId() {
-    const sequence = await Sequence.findOneAndUpdate({}, { $inc: { maxContactId: 1 } }, { new: true });
-    return sequence.maxContactId;
+  async nextPokemeonId() {
+    const sequence = await Sequence.findOneAndUpdate({}, { $inc: { maxPokemonId: 1 } }, { new: true });
+    return sequence.maxPokemontId;
   }
 };
 

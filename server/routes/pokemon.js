@@ -1,14 +1,14 @@
 var express = require('express');
 var router = express.Router();
 const sequenceGenerator = require('./sequenceGenerator');
-const Contact = require('../models/contact'); // Changed ContactModel to Contact to match the model definition
+const Pokemon = require('../models/Pokemon'); // Changed PokemonModel to Pokemon to match the model definition
 
-// Route to get all Contacts
+// Route to get all Pokemons
 router.get('/', async (req, res, next) => {
   try {
-      const contacts = await Contact.find(); // Changed contacts to Contacts to reflect the fetched data
+      const pokemon = await Pokemon.find(); // Changed pokemon to Pokemons to reflect the fetched data
 
-      res.status(200).json(contacts);
+      res.status(200).json(pokemon);
   } catch (error) {
       res.status(500).json({ error: error.message });
   }
@@ -16,26 +16,25 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
-    // Retrieve the next ID from the sequence generator
-    const maxContactId = await sequenceGenerator.nextId("contacts");
-
-    // Creating a new Contact object using the Contact model
-    const contact = new Contact({
-      id: maxContactId,
+    // Creating a new Pokemon object using the Pokemon model
+    const pokemon = new Pokemon({
+      id: req.body.id,
       name: req.body.name, 
-      email: req.body.email, 
-      phone: req.body.phone, 
-      imageUrl: req.body.imageUrl, 
-      group: req.body.group
+      type: req.body.type, 
+      weakness: req.body.weakness, 
+      color: req.body.color, 
+      evolution: req.body.evolution,
+      category : req.body.category,
+      img : req.body.img
     });
 
-    // Saving the new Contact to the database
-    const createdContact = await contact.save();
+    // Saving the new Pokemon to the database
+    const createdPokemon = await pokemon.save();
 
-    // Responding with status 201 (Created) and the created Contact object
+    // Responding with status 201 (Created) and the created Pokemon object
     res.status(201).json({
-      message: 'Contact added successfully',
-      contact: createdContact
+      message: 'Pokemon added successfully',
+      pokemon: createdPokemon
     });
   } catch (error) {
     // If an error occurs, respond with status 500 (Internal Server Error) and an error message
@@ -50,18 +49,19 @@ router.post('/', async (req, res, next) => {
 
 
 router.put('/:id', (req, res, next) => {
- Contact.findOne({ id: req.params.id })
-    .then(contact => {
-        contact.name = req.body.name;
-        contact.email = req.body.email;
-        contact.phone = req.body.phone;
-        contact.imageUrl = req.body.imageUrl;
-        contact.group = req.body.group;
+ Pokemon.findOne({ id: req.params.id })
+    .then(pokemon => {
+        pokemon.name = req.body.name;
+        pokemon.type = req.body.type;
+        pokemon.weakness = req.body.weakness;
+        pokemon.color = req.body.color;
+        pokemon.evolution = req.body.evolution;
+        pokemon.img = req.body.img;
 
-      Contact.updateOne({ id: req.params.id }, contact)
+      Pokemon.updateOne({ id: req.params.id }, pokemon)
         .then(result => {
           res.status(204).json({
-            message: 'Contact updated successfully'
+            message: 'Pokemon updated successfully'
           })
         })
         .catch(error => {
@@ -73,8 +73,8 @@ router.put('/:id', (req, res, next) => {
     })
     .catch(error => {
       res.status(500).json({
-        message: 'Contact not found.',
-        error: { contact: 'Contact not found'}
+        message: 'Pokemon not found.',
+        error: { pokemon: 'Pokemon not found'}
       });
     });
 });
@@ -82,24 +82,24 @@ router.put('/:id', (req, res, next) => {
 
 // DELETE WORKS!!
 router.delete('/:id', (req, res, next) => {
- Contact.findOne({ id: req.params.id })
+ Pokemon.findOne({ id: req.params.id })
     .then((cntct) => {
-      Contact.deleteOne({ id: req.params.id })
+      Pokemon.deleteOne({ id: req.params.id })
         .then((result) => {
           res.status(204).json({
-            message: "Contact deleted successfully",
+            message: "Pokemon deleted successfully",
           });
         })
         .catch((err) => {
           res.status(500).json({
-            message: "There was a problem deleting the contact.",
+            message: "There was a problem deleting the pokemon.",
             error: err,
           });
         });
     })
     .catch((err) => {
       res.status(404).json({
-        message: "Contact not found.",
+        message: "Pokemon not found.",
         error: err,
       });
     });
