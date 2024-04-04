@@ -2,10 +2,10 @@
   "_id": {
     "$oid": "6556862c580db91ab5f60196"
   },
+  "id": "0109",
   "name": "Koffing",
   "type": "Poison",
   "weakness": "Psychic",
-  "number": "0109",
   "color": "Purple",
   "evolution": "Weezing",
   "category": "Gas",
@@ -15,10 +15,10 @@
   "_id": {
     "$oid": "65568681580db91ab5f60197"
   },
+  "id": "0144",
   "name": "Articuno",
   "type": "Ice, Flying",
   "weakness": "Steel",
-  "number": "0144",
   "color": "Blue",
   "evolution": "Final Evolution",
   "category": "Freeze",
@@ -28,10 +28,10 @@
   "_id": {
     "$oid": "65568700580db91ab5f60198"
   },
+  "id": "0001",
   "name": "Bulbasaur",
   "type": "Grass, Poison",
   "weakness": "Fire",
-  "number": "0001",
   "color": "Green, Dark Green",
   "evolution": "Ivysaur",
   "category": "Seed",
@@ -41,10 +41,10 @@
   "_id": {
     "$oid": "6558d034fe04b5873f813a19"
   },
+  "id": "0038",
   "name": "Ninetales",
   "type": "Fire",
   "weakness": "Water",
-  "number": "0038",
   "color": "Cream",
   "evolution": "Final Evolution",
   "category": "flash fire",
@@ -54,10 +54,10 @@
   "_id": {
     "$oid": "655972bd76ed7b6d7d08932b"
   },
+  "id": "0152",
   "name": "Chikorita",
   "type": "Grass",
   "weakness": "Fire",
-  "number": "0152",
   "color": "Green",
   "evolution": "Bayleef",
   "category": "Overgrow",
@@ -67,10 +67,10 @@
   "_id": {
     "$oid": "6559789275e86fb6e6763016"
   },
+  "id": "0156",
   "name": "Quilava",
   "type": "Fire",
   "weakness": "Water",
-  "number": "0156",
   "color": "Green",
   "evolution": "Typhlosion",
   "category": "Blaze",
@@ -80,10 +80,10 @@
   "_id": {
     "$oid": "655f8fab792dc9a4c58ed509"
   },
+  "id": "0004",
   "name": "Charmander",
   "type": "Fire",
   "weakness": "Water",
-  "number": "0004",
   "color": "Orange, red",
   "evolution": "Charmeleon",
   "category": "Blaze",
