@@ -7,16 +7,18 @@ import { PokemonService } from './pokemon.service';
   templateUrl: './pokemon.component.html',
   styleUrl: './pokemon.component.css'
 })
-export class PokemonComponent implements OnInit{
+export class PokemonComponent implements OnInit {
   selectedPokemon!: Pokemon;
 
 
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit() {
-    this.pokemonService.pokemonSelectedEvent.subscribe((pokemon: Pokemon) => {
-      this.selectedPokemon = pokemon;
-    });
-
+    this.pokemonService.pokemonSelectedEvent
+      .subscribe(
+        (pokemon: Pokemon) => {
+          this.selectedPokemon = pokemon;
+        }
+      );
   }
 }

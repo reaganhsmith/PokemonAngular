@@ -6,16 +6,19 @@ import { Pokemon } from './pokemon.model';
 })
 export class PokemonFilterPipe implements PipeTransform {
 
-  transform(pokemon: Pokemon[], term: string): Pokemon[] {
-    let filterArray : Pokemon[] = [];
 
-    if (term && term.length > 0){
+  transform(pokemon: Pokemon[], term: string): Pokemon[] {
+    let filterArray: Pokemon[] = [];
+
+
+    if (term && term.length > 0) {
       filterArray = pokemon.filter(
-        (pokemon:Pokemon) => pokemon.name.toLowerCase().includes(term.toLowerCase())
+        (pokemon: Pokemon) => pokemon.name.toLowerCase().includes(term.toLowerCase())
       )
+
     }
 
-    if (filterArray.length < 1){
+    if (filterArray.length < 1) {
       return pokemon;
     }
     return filterArray

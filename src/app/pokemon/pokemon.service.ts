@@ -1,7 +1,7 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Pokemon } from './pokemon.model';
-import { Subject, Observable } from 'rxjs';
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { Subject } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ export class PokemonService {
   @Output() pokemonSelectedEvent = new EventEmitter<Pokemon>();
   @Output() pokemonChangedEvent = new EventEmitter<Pokemon[]>();
   pokemonListChangedEvent = new Subject<Pokemon[]>();
-  pokemonUrl = "http://localhost:3000/pokemon"
+  pokemonUrl = "http://localhost:3000/pokemon";
 
   pokemon: Pokemon[] = [];
   maxPokemonId: number;
@@ -26,16 +26,15 @@ export class PokemonService {
       .subscribe((pokemon: Pokemon[]) => {
         this.pokemon = pokemon;
         this.maxPokemonId = this.getMaxId();
-        this.pokemonListChangedEvent.next(this.pokemon.slice().sort(this.sortById))
+        this.sortByName();
+        this.pokemonListChangedEvent.next(this.pokemon.slice())
       });
 
       return this.pokemon.slice();
   }
 
-  sortById(a: Pokemon, b: Pokemon) {
-    const idA = +a.id;
-    const idB = +b.id;
-    return idA - idB;
+  private sortByName() {
+    this.pokemon.sort((a, b) => a.name.localeCompare(b.name));
   }
 
   storePokemon() {
@@ -44,13 +43,13 @@ export class PokemonService {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
       })
       .subscribe(() => {
-        const sortedPokemon = this.pokemon.slice().sort(this.sortById);
-        this.pokemonListChangedEvent.next(sortedPokemon);
+        this.sortByName;
+        this.pokemonListChangedEvent.next(this.pokemon.slice());
       });
   }
 
-  getPokemon(id: string): Pokemon {
-    return this.pokemon[+id];
+  getPokemon(id: string): Pokemon | undefined{
+    return this.pokemon.find(pokemon => pokemon.id === id);
   }
 
   getMaxId(): number {
@@ -76,7 +75,8 @@ export class PokemonService {
           next: (res) => {
             console.log(res.message);
             this.pokemon.push(res.pokemon);
-            const sortedPokemon = this.pokemon.slice().sort(this.sortById);
+            this.sortByName;
+            const sortedPokemon = this.pokemon.slice();
             this.pokemonListChangedEvent.next(sortedPokemon);
           }
         });
@@ -102,7 +102,8 @@ export class PokemonService {
       .subscribe(
         () => {
           this.pokemon[pos] = newPokemon;
-          const sortedPokemon = this.pokemon.slice().sort(this.sortById);
+          this.sortByName;
+          const sortedPokemon = this.pokemon.slice();
           this.pokemonListChangedEvent.next(sortedPokemon);
         }
       );
@@ -122,7 +123,8 @@ export class PokemonService {
       .subscribe(
         () => {
           this.pokemon.splice(pos, 1);
-          const sortedPokemon = this.pokemon.slice().sort(this.sortById);
+          this.sortByName;
+          const sortedPokemon = this.pokemon.slice();
           this.pokemonListChangedEvent.next(sortedPokemon);
         }
       );
