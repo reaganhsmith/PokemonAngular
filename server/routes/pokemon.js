@@ -47,62 +47,55 @@ router.post('/', async (req, res, next) => {
 
 
 
-
-router.put('/:id', (req, res, next) => {
- Pokemon.findOne({ id: req.params.id })
-    .then(pokemon => {
-        pokemon.name = req.body.name;
-        pokemon.type = req.body.type;
-        pokemon.weakness = req.body.weakness;
-        pokemon.color = req.body.color;
-        pokemon.evolution = req.body.evolution;
-        pokemon.img = req.body.img;
-
-      Pokemon.updateOne({ id: req.params.id }, pokemon)
-        .then(result => {
-          res.status(204).json({
-            message: 'Pokemon updated successfully'
-          })
-        })
-        .catch(error => {
-           res.status(400).json({
-           message: 'An error occurred',
-           error: error
-         });
-        });
-    })
-    .catch(error => {
-      res.status(500).json({
-        message: 'Pokemon not found.',
-        error: { pokemon: 'Pokemon not found'}
+router.put('/:id', async (req, res, next) => {
+  try {
+    const pokemon = await Pokemon.findOne({ id: req.params.id });
+    if (!pokemon) {
+      return res.status(404).json({
+        message: 'Pokemon not found.'
       });
+    }
+
+    pokemon.name = req.body.name;
+    pokemon.type = req.body.type;
+    pokemon.weakness = req.body.weakness;
+    pokemon.color = req.body.color;
+    pokemon.evolution = req.body.evolution;
+    pokemon.img = req.body.img;
+
+    await pokemon.save();
+
+    res.status(204).json({
+      message: 'Pokemon updated successfully'
     });
+  } catch (error) {
+    res.status(500).json({
+      message: 'An error occurred',
+      error: error.message
+    });
+  }
 });
 
-
-// DELETE WORKS!!
-router.delete('/:id', (req, res, next) => {
- Pokemon.findOne({ id: req.params.id })
-    .then((cntct) => {
-      Pokemon.deleteOne({ id: req.params.id })
-        .then((result) => {
-          res.status(204).json({
-            message: "Pokemon deleted successfully",
-          });
-        })
-        .catch((err) => {
-          res.status(500).json({
-            message: "There was a problem deleting the pokemon.",
-            error: err,
-          });
-        });
-    })
-    .catch((err) => {
-      res.status(404).json({
-        message: "Pokemon not found.",
-        error: err,
+router.delete('/:id', async (req, res, next) => {
+  try {
+    const pokemon = await Pokemon.findOne({ id: req.params.id });
+    if (!pokemon) {
+      return res.status(404).json({
+        message: 'Pokemon not found.'
       });
+    }
+
+    await Pokemon.deleteOne({ id: req.params.id });
+
+    res.status(204).json({
+      message: 'Pokemon deleted successfully'
     });
+  } catch (error) {
+    res.status(500).json({
+      message: 'An error occurred',
+      error: error.message
+    });
+  }
 });
 
 module.exports = router;

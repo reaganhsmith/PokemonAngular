@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 
 const pokemonSchema = mongoose.Schema({
-    id: {type: String, require: true},
-    name: {type: String, require: true},
-    type: {type: String, require: true},
-    weakness: {type: String, require: true},
-    color: {type: String, require: true},
-    evolution: {type: String, require: true},
-    category: {type: String, require: true},
-    img: {type: String, require: true}
+    id: { type: String, required: true },
+    name: { type: String, required: true },
+    type: { type: String, required: true },
+    weakness: { type: String, required: true },
+    color: { type: String, required: true },
+    evolution: { type: String, required: true },
+    category: { type: String, required: true },
+    img: { type: String, required: true }
 });
 
 module.exports = mongoose.model("Pokemon", pokemonSchema);
