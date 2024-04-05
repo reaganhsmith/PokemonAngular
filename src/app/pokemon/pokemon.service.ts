@@ -48,8 +48,8 @@ export class PokemonService {
       });
   }
 
-  getPokemon(id: string): Pokemon | undefined{
-    return this.pokemon.find(pokemon => pokemon.id === id);
+  getPokemon(id: string){
+    return this.pokemon[+id];
   }
 
   getMaxId(): number {
