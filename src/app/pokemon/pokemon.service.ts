@@ -14,14 +14,22 @@ export class PokemonService {
 
   pokemon: Pokemon[] = [];
   maxPokemonId: number;
+  pokemonListClone!: Pokemon[];
 
   constructor(private httpClient: HttpClient) {
     this.maxPokemonId = this.getMaxId();
   }
 
-  getAllPokemon(): Observable<Pokemon[]> {
-    return this.httpClient
-      .get<Pokemon[]>(this.pokemonUrl);
+  getAllPokemon(): Pokemon[] {
+     this.httpClient
+      .get<Pokemon[]>(this.pokemonUrl)
+      .subscribe((pokemon: Pokemon[]) => {
+        this.pokemon = pokemon;
+        this.maxPokemonId = this.getMaxId();
+        this.pokemonListChangedEvent.next(this.pokemon.slice().sort(this.sortById))
+      });
+
+      return this.pokemon.slice();
   }
 
   sortById(a: Pokemon, b: Pokemon) {
@@ -48,7 +56,7 @@ export class PokemonService {
   getMaxId(): number {
     let maxId = 0;
     for (let pokemon of this.pokemon) {
-      let currentId = +pokemon.id;
+      let currentId = maxId;
       if (currentId > maxId) {
         maxId = currentId;
       }
@@ -58,7 +66,6 @@ export class PokemonService {
 
   addPokemon(newPokemon: Pokemon) {
     if (!newPokemon) return;
-    newPokemon.id = '';
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
     this.httpClient

@@ -6,7 +6,7 @@ const Pokemon = require('../models/Pokemon'); // Changed PokemonModel to Pokemon
 // Route to get all Pokemons
 router.get('/', async (req, res, next) => {
   try {
-      const pokemon = await Pokemon.find(); // Changed pokemon to Pokemons to reflect the fetched data
+      const pokemon = await Pokemon.find();
 
       res.status(200).json(pokemon);
   } catch (error) {
