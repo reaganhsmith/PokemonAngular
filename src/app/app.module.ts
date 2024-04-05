@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,9 @@ import { PokemonDetailsComponent } from './pokemon/pokemon-details/pokemon-detai
 import { PokemonEditComponent } from './pokemon/pokemon-edit/pokemon-edit.component';
 import { PokemonListComponent } from './pokemon/pokemon-list/pokemon-list.component';
 import { PokemonItemComponent } from './pokemon/pokemon-list/pokemon-item/pokemon-item.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PokemonFilterPipe } from './pokemon/pokemon-filter.pipe';
+
 
 @NgModule({
   declarations: [
@@ -18,11 +22,15 @@ import { PokemonItemComponent } from './pokemon/pokemon-list/pokemon-item/pokemo
     PokemonDetailsComponent,
     PokemonEditComponent,
     PokemonListComponent,
-    PokemonItemComponent
+    PokemonItemComponent,
+    PokemonFilterPipe
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

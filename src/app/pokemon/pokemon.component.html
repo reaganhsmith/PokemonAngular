@@ -4,17 +4,8 @@
     <app-pokemon-list></app-pokemon-list>
   </div>
   <div class="col-md-7">
-    <app-pokemon-details
-      *ngIf="selectedPokemon; else infoText"
-      [pokemon]="selectedPokemon"></app-pokemon-details>
-    <ng-template #infoText>
-      <p>Please select a Pokemon!</p>
-    </ng-template>
   </div>
 </div>
-
-
-  
 
  
   

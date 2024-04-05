@@ -1,4 +1,4 @@
-<a href="#" class="list-group-item clearfix" (click)="onSelected()">
+<a class="list-group-item clearfix" [routerLink]="[index]" routerLinkActive="active">
   <div class="item-container">
     <img [src]="pokemon.img" [alt]="pokemon.name" class="img-responsive" style="max-width: 10rem;">
     <div>
