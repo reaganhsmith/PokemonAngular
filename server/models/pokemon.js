@@ -11,4 +11,4 @@ const pokemonSchema = mongoose.Schema({
     img: { type: String, required: true }
 });
 
-module.exports = mongoose.model("Pokemon", pokemonSchema);
+module.exports = mongoose.model("pokemon", pokemonSchema);

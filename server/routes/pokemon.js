@@ -1,13 +1,11 @@
 var express = require('express');
 var router = express.Router();
-const sequenceGenerator = require('./sequenceGenerator');
 const Pokemon = require('../models/Pokemon'); // Changed PokemonModel to Pokemon to match the model definition
 
 // Route to get all Pokemons
 router.get('/', async (req, res, next) => {
   try {
       const pokemon = await Pokemon.find();
-      console.log(pokemon)
       res.status(200).json(pokemon);
   } catch (error) {
       res.status(500).json({ error: error.message });
