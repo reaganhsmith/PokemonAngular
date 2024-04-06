@@ -5,7 +5,7 @@ import { NgForm } from '@angular/forms';
 import { Pokemon } from '../pokemon.model';
 
 @Component({
-  selector: 'app-contact-edit',
+  selector: 'app-pokemon-edit',
   templateUrl: './pokemon-edit.component.html',
   styleUrl: './pokemon-edit.component.css'
 })

@@ -7,7 +7,7 @@ const Pokemon = require('../models/Pokemon'); // Changed PokemonModel to Pokemon
 router.get('/', async (req, res, next) => {
   try {
       const pokemon = await Pokemon.find();
-
+      console.log(pokemon)
       res.status(200).json(pokemon);
   } catch (error) {
       res.status(500).json({ error: error.message });
