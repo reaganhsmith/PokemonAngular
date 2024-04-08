@@ -14,7 +14,7 @@ const pokemonRoutes = require('./server/routes/pokemon');
 
 
 
-mongoose.connect('mongodb+srv://reagansmith:FullStack430@cse341.fc1fsnu.mongodb.net/pokemon')
+mongoose.connect('mongodb+srv://reagansmith:FullStack430@cse341.fc1fsnu.mongodb.net/Pokemon')
     .then(() => {
         console.log('Connected to MongoDB');
     })

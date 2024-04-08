@@ -39,8 +39,8 @@
         <div class="col-sm-12 form-group">
           <label for="color">Color:</label>
           <input type="text" id="color" class="form-control invalid" size="150" max="255" name="color"
-            [ngModel]="pokemon?.color" #color="ngModel">
-
+            [ngModel]="pokemon?.color" required #color="ngModel">
+          <a href="https://www.w3schools.com/cssref/css_colors.php" target="_blank">Pick color from here</a>
         </div>
       </div>
 
@@ -57,7 +57,7 @@
         <div class="col-sm-12 form-group">
           <label for="category">Category:</label>
           <input type="text" id="category" class="form-control" size="150" max="255" name="category"
-            [ngModel]="pokemon?.category" #category="ngModel">
+            [ngModel]="pokemon?.category" required  #category="ngModel">
         </div>
       </div>
      
@@ -65,7 +65,7 @@
         <div class="col-sm-12 form-group">
           <label for="img">Image URL:</label>
           <input type="text" id="img" class="form-control" size="150" max="255" name="img"
-            [ngModel]="pokemon?.img" #img="ngModel">
+            [ngModel]="pokemon?.img" required #img="ngModel">
         </div>
       </div>
 
