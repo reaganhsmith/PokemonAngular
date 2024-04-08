@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pokemon": {
+    "cms": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/pokemon",
+            "outputPath": "dist/cms",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -35,7 +35,7 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap3/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -45,13 +45,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
                 }
               ],
               "outputHashing": "all"
@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "pokemon:build:production"
+              "buildTarget": "cms:build:production"
             },
             "development": {
-              "buildTarget": "pokemon:build:development"
+              "buildTarget": "cms:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "pokemon:build"
+            "buildTarget": "cms:build"
           }
         },
         "test": {
@@ -104,6 +104,6 @@
     }
   },
   "cli": {
-    "analytics": "533c0343-dfba-4f3b-ba35-154d2af19f74"
+    "analytics": "20927a14-905d-408b-9334-59ac8c74368a"
   }
 }

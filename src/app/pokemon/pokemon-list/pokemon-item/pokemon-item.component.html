@@ -1,9 +1,10 @@
 <a class="list-group-item clearfix" [routerLink]="[index]" routerLinkActive="active">
-  <div class="item-container">
-    <img [src]="pokemon.img" [alt]="pokemon.name" class="img-responsive" style="max-width: 10rem;">
-    <div>
-    <h4 class="list-group-item-heading" style="color:#2a5d8d">{{pokemon.name}}</h4>
-    <p style="text-align: right">{{ pokemon.id }}</p></div>
-  </div>
-</a> 
-
+    <div class="pull-left">
+        <h4 class="list-group-item-heading">{{ pokemon.name }}</h4>
+        <p class="list-group-item-text">{{ pokemon.type }}</p>
+    </div>
+    <span class="pull-right">
+        <img src="{{ pokemon.img }}" alt="{{ pokemon.name }}" class="img-responsive" style="Max-height: 50px">
+        <p style="text-align: right;"> #{{ pokemon.id }}</p>
+    </span>
+</a>

@@ -1,9 +1,3 @@
-.add:hover{
-    background-color: #193956;
-}
-
-.add{
-    color: white;
-    background-color: #2a5d8d;
-    font-weight: 800;
+.pokemonLink{
+    margin-top: 5rem;
 }

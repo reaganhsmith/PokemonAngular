@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Pokemon } from './pokemon.model';
+import { filter } from 'rxjs';
 
 @Pipe({
   name: 'pokemonFilter'
@@ -21,7 +22,7 @@ export class PokemonFilterPipe implements PipeTransform {
     if (filterArray.length < 1) {
       return pokemon;
     }
-    return filterArray
+    return filterArray;
   }
 
 }

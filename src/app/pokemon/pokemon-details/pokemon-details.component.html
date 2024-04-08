@@ -1,21 +1,38 @@
 <div class="panel panel-default">
-    <div class="panel-heading text-center">
-        <div style="display: inline-block;">
-            <div class="">
-             <h2>{{ pokemon.name }}</h2>   
-                <p><strong>Number: </strong>{{ pokemon.id }}</p>
-            </div>
-            <img src="{{ pokemon.img }}" alt="{{ pokemon.name }}" class="img-responsive card"> 
-            <p style="padding-top: 1rem"><strong>{{ pokemon.type }} Pokemon</strong>, #{{pokemon.category}}</p>
-        </div>
+  <div style="display: inline-block;">
+    <div class="pokemonTop">
+<h2 style="color: {{pokemon.color}}; ">{{ pokemon.name }}</h2>
+      <p style="color: {{pokemon.color}}; "><strong>Number: </strong>{{ pokemon.id }}</p>
+
+      <!-- <img src=" {{ pokemon.img }}" alt="{{ pokemon.name }}" class="img-responsive card"> -->
+      <img src="{{ pokemon.img }}" alt="{{ pokemon.name }}" class="img-responsive card">
     </div>
-    <div class="panel-body">
-        <p style="font-size: 2rem;"><strong>weakness: </strong>{{ pokemon.weakness }}<br>
-        <strong>Color: </strong>{{ pokemon.color }}<br>
-        <strong>Evolution: </strong>{{ pokemon.evolution }}</p>
-    </div>
-    <div class="text-right">
-        <button class="btn" style="margin: .5rem; color:white" routerLink="edit">Edit</button>
-        <button class="btn btn-danger" style="margin: .5rem" (click)="onDelete()">Delete</button>
-    </div>
+    <p style="padding-top: 1rem" style="color: {{pokemon.color}}; text-align: center"><strong>{{ pokemon.type }} Pokemon</strong>, #{{pokemon.category}}</p>
+
+    <!-- <div class="row">
+    <div class="col-xs-12 center-block"> -->
+    <!-- <img src="{{ pokemon.img }}" alt="{{ pokemon.name }}" class="pull-left img-responsive" style="max-width:8rem"> -->
+    <!-- <div class="panel-body">
+          <button class="pull-right btn btn-primary" style="margin: .5rem" routerLink="edit">Edit</button>
+          <button class="pull-right btn btn-danger" style="margin: .5rem" (click)="onDelete()">Delete</button>
+        </div> -->
+    <!-- </div>
+  </div> -->
+  </div>
+  <!-- <div class="panel-body">
+  <p><strong>Number: </strong>{{pokemon.id}}</p>
+  <p><strong>Type: </strong>{{pokemon.type}}</p>
+</div> -->
+
+  <div class=" panel panel-body">
+    <p style="font-size: 2rem;color: {{pokemon.color}}; "><strong>weakness: </strong>{{ pokemon.weakness }}<br>
+      <strong>Color: </strong>{{ pokemon.color }}<br>
+      <strong>Evolution: </strong>{{ pokemon.evolution }}
+    </p>
+  </div>
+
+  <div class=" panel panel-body">
+    <button class="pull-left btn btn-primary" style="margin: .5rem" routerLink="edit">Edit</button>
+    <button class="pull-left btn btn-danger" style="margin: .5rem" (click)="onDelete()">Delete</button>
+  </div>
 </div>

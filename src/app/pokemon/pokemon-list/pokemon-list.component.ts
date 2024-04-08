@@ -10,9 +10,9 @@ import { PokemonFilterPipe } from '../pokemon-filter.pipe';
   styleUrl: './pokemon-list.component.css'
 })
 export class PokemonListComponent implements OnInit{
-  pokemon!: Pokemon[];
-  subscription!: Subscription;
-  term!: string;
+  pokemon: Pokemon[];
+  subscription: Subscription;
+  term: string;
 
 
   constructor(private pokemonService: PokemonService){
@@ -27,6 +27,7 @@ export class PokemonListComponent implements OnInit{
     })
   }
 
+ 
 
   ngOnDestroy(){
     this.subscription.unsubscribe();

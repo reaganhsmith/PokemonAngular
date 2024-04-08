@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../pokemon.model';
-import { ActivatedRoute, Router, Params } from '@angular/router';
+import { ActivatedRoute, Router, Params} from '@angular/router';
 import { PokemonService } from '../pokemon.service';
 
 @Component({
@@ -9,33 +9,31 @@ import { PokemonService } from '../pokemon.service';
   styleUrl: './pokemon-details.component.css'
 })
 export class PokemonDetailsComponent implements OnInit{
-  pokemon!: Pokemon;
-  id!: string;
+  pokemon: Pokemon;
+  id: string;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
     private pokemonService: PokemonService){
+  }
 
-    }
-  ngOnInit() {
+  ngOnInit(){
     this.route.params
       .subscribe(
         (params: Params) => {
           this.id = params['id'];
-
-          this.pokemon = this.pokemonService.getPokemon(this.id);
           
+          this.pokemon = this.pokemonService.getPokemon(this.id); 
         }
       );
-
   }
-  
-  
+
   onDelete(){
     this.pokemonService.deletePokemon(this.pokemon);
-    this.router.navigate(['/pokemon'])
-  };
+    this.router.navigate(['/pokemon']);
+  }
 
-      
 
-}
+
+
+} 

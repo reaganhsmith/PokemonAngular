@@ -5,11 +5,10 @@ import { PokemonService } from './pokemon.service';
 @Component({
   selector: 'app-pokemon',
   templateUrl: './pokemon.component.html',
-  styleUrl: './pokemon.component.css'
+  styleUrls: ['./pokemon.component.css']
 })
 export class PokemonComponent implements OnInit {
-  selectedPokemon!: Pokemon;
-
+  selectedPokemon: Pokemon;
 
   constructor(private pokemonService: PokemonService) { }
 

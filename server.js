@@ -14,8 +14,7 @@ const pokemonRoutes = require('./server/routes/pokemon');
 
 
 
-
-mongoose.connect('mongodb+srv://reagansmith:FullStack430@cse341.fc1fsnu.mongodb.net/Pokemon')
+mongoose.connect('mongodb+srv://reagansmith:FullStack430@cse341.fc1fsnu.mongodb.net/pokemon')
     .then(() => {
         console.log('Connected to MongoDB');
     })
@@ -53,22 +52,21 @@ app.use((req, res, next) => {
 
 // Tell express to use the specified director as the
 // root directory for your web site
-app.use(express.static(path.join(__dirname, 'dist/pokemon')));
+app.use(express.static(path.join(__dirname, 'dist/cms')));
 
 // Tell express to map the default route ('/') to the index route
 app.use('/', index);
 app.use('/pokemon', pokemonRoutes);
 
-
 // ... ADD YOUR CODE TO MAP YOUR URL'S TO ROUTING FILES HERE ...
 
 // Tell express to map all other non-defined routes back to the index page
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/pokemon/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/cms/index.html'));
 });
 
 // Define the port address and tell express to use this port
-const port = '3000';
+const port = process.env.PORT || '3000';
 app.set('port', port);
 
 // Create HTTP server.
